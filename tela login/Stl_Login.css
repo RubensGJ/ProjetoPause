@@ -1,0 +1,129 @@
+
+body {
+    font-family: Courier, monospace;
+    background-image: url('https://www.yourbigsky.com/wp-content/uploads/sites/101/2023/02/Psychology.jpeg?w=2560&h=1440&crop=1');
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div {
+    background-color: rgba(255, 171, 171, 0.658);
+    padding: 40px;
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    width: 300px;
+    text-align: center;
+}
+input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+}
+button {
+    background-color: rgb(160, 104, 155);
+    border: none;
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    background-color: rgb(165, 48, 155);
+}
+.login-utils {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+.login-utils li {
+    margin-bottom: 10px;
+}
+.text1 {
+    color: rgb(0, 0, 0);
+}
+.text2 {
+    color: rgb(114, 59, 119);
+    text-decoration: none;
+}
+.text2:hover {
+    text-decoration: underline;
+}
+/* Estilos do popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    text-align: center;
+    z-index: 1001;
+}
+.popup h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+.popup p {
+    color: #333;
+    font-size: 14px;
+}
+.popup button {
+    background-color: rgb(160, 104, 155);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.popup button:hover {
+    background-color: rgb(165, 48, 155);
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1000;
+}
+
+/* Estilos dos botões de controle de fonte */
+.controls {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background: rgb(160, 104, 155);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 150px; /* Ajuste a largura dos botões */
+}
+
+.controls button:hover {
+    background: rgb(165, 48, 155);
+}

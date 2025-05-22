@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueceu sua senha</title>
+    <link rel="stylesheet" href="Stl_Nova_senha.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Esqueceu sua senha?</h2>
+        <p>Digite seu e-mail e enviaremos um link para redefinir sua senha.</p>
+        <form id="resetForm" onsubmit="showConfirmation(event)">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            <button type="submit">Enviar link de redefinição</button>
+        </form>
+    </div>
+
+    <!-- Pop-up de confirmação -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h3>Confirmação</h3>
+        <p>O link para redefinir sua senha foi enviado para o seu e-mail!</p>
+        <button onclick="closePopup()">Fechar</button>
+    </div>
+
+    <script>
+        // Função para exibir o pop-up de confirmação após o envio do formulário
+        function showConfirmation(event) {
+            event.preventDefault(); // Impede o envio real do formulário (para fins de demonstração)
+
+            // Exibe o pop-up e a sobreposição
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+
+            // Simulação do envio do e-mail (aqui você pode substituir pela lógica real)
+            setTimeout(function() {
+                // Simula um atraso no envio e fecha o pop-up
+                closePopup();
+            }, 3000); // Fecha após 3 segundos
+        }
+
+        // Função para fechar o pop-up
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

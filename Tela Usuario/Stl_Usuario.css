@@ -1,0 +1,280 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+header {
+    background-color: #ee969685;
+    color: white;
+    padding: 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 24px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode header {
+    background-color: rgba(160, 104, 155, 0.829);
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .sidebar {
+    background-color: #2c2c2c;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.sidebar a {
+    display: block;
+    color: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+body.dark-mode .sidebar a {
+    color: #f0f0f0;
+}
+
+.sidebar a:hover {
+    background-color: rgba(160, 104, 155, 0.829);
+    color: white;
+}
+
+.profile-container {
+    background-color: white;
+    flex: 1;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease-in-out, background-color 0.3s ease;
+    position: relative;
+}
+
+body.dark-mode .profile-container {
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.profile-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.profile-container h2, .profile-container p {
+    margin: 10px 0;
+    color: #333;
+    font-weight: 500;
+}
+
+body.dark-mode .profile-container h2, 
+body.dark-mode .profile-container p {
+    color: #f0f0f0;
+}
+
+.profile-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+body.dark-mode .profile-container input {
+    background-color: #3a3a3a;
+    color: white;
+    border-color: #555;
+}
+
+.profile-container .buttons {
+    margin-top: 20px;
+}
+
+.profile-container .buttons button {
+    background-color: rgba(160, 104, 155, 0.829);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.profile-container .buttons button:hover {
+    background-color: rgba(160, 104, 155, 0.829);
+}
+
+.profile-container .buttons .logout {
+    background-color: #f436e4;
+}
+
+.profile-container .buttons .logout:hover {
+    background-color: #f436e4;
+}
+
+footer {
+    background-color: rgb(160, 104, 155);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode footer {
+    background-color: rgb(160, 104, 155);
+}
+
+.dark-mode-toggle {
+    margin-left: auto;
+    background-color: rgb(160, 104, 155);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1001;
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: #888;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+    z-index: 1001;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    color: #333; /* Garantir que a cor do texto do popup seja preta, mesmo no modo escuro */
+}
+
+body.dark-mode .popup {
+    color: #333; /* Cor preta para o texto no modo escuro também */
+}
+
+.popup h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.popup button {
+    background-color: rgba(160, 104, 155, 0.829);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.popup button:hover {
+    background-color: #aa5990;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.edit-form {
+    display: none;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.edit-form input {
+    margin-bottom: 15px;
+}
+
+.edit-form .buttons button {
+    background-color: #f436e4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.edit-form .buttons button:hover {
+    background-color: #f436e4;
+}
