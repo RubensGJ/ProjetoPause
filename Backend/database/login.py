@@ -13,7 +13,7 @@ def conecta_bd():
 
 @app.route('/')
 def index():
-    return send_file('Telalogin.html')
+    return send_file('../frontend/templates/Telalogin.html')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -29,7 +29,7 @@ def login():
         conn.close()
 
         if user:
-            return send_file('telausuario.html')
+            return send_file('../frontend/templates/Telausuario.html')
         else:
             return '''
                 <script>
@@ -42,7 +42,7 @@ def login():
 
 @app.route('/telausuario')
 def tela_usuario():
-    return send_file('telausuario.html')
+    return send_file('../frontend/templates/Telausuario.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

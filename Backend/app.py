@@ -21,7 +21,7 @@ def after_request(response):
 # Rota inicial
 @app.route('/')
 def index():
-    return send_file('templates/Telacadastro.html')  # Certifique-se de que o arquivo está na pasta "templates"
+    return send_file('../frontend/templates/Telacadastro.html')  # Certifique-se de que o arquivo está na pasta "templates"
 
 # Rota de cadastro
 @app.route('/cadastro', methods=['POST'])

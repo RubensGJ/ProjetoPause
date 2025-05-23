@@ -3,7 +3,7 @@ html {
 	height: 100%;
 	margin: 0;
 	background: -webkit-linear-gradient(to right, #f758dc, #e04199, #b92067);
-	background-image: url("fundo.jpeg");
+	background-image: url("../assets/img/fundo.jpeg");
 	background-size: cover;
 }
 
