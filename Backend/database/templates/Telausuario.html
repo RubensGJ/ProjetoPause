@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <link
-      rel="stylesheet"
-      href="../../../frontend/assets/css/Stl_Usuario.css"
-    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pause: pausa para a saúde mental</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/Stl_Usuario.css') }}"
+    />
   </head>
   <body>
     <header>
@@ -17,22 +17,24 @@
 
     <div class="container">
       <div class="sidebar">
-        <a href="Telainicial.html">Inicio</a>
-        <a href="chat.html">Chat</a>
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <a href="{{ url_for('chat') }}">Chat</a>
         <a href="#">Configurações</a>
         <a href="#">Ajuda</a>
       </div>
 
       <div class="profile-container">
         <img
-          src="../../../frontend/assets/img/usuario.png"
+          src="{{ url_for('static', filename='img/usuario.png') }}"
           alt="Foto do Usuário"
         />
         <h2 id="profileName">Allan</h2>
         <p id="profileEmail">Email: Allan@gmail.com</p>
         <div class="buttons">
           <button id="editProfileButton">Editar Perfil</button>
-          <a href="Telalogin.html"><button class="logout">Sair</button></a>
+          <a href="{{ url_for('login') }}"
+            ><button class="logout">Sair</button></a
+          >
         </div>
 
         <div class="edit-form" id="editForm">

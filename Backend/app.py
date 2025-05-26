@@ -1,9 +1,17 @@
-from flask import Flask, request, redirect, send_file
+from flask import Flask, request, redirect, send_file, render_template, url_for
 from database.routes.cadastro import cadastro_bp
+from database.routes.login import login_bp
 import psycopg2
+import os
 
-app = Flask(__name__)
+app = Flask(__name__,
+    template_folder='database/templates',
+    static_folder=os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend/assets')),
+    static_url_path='/static'
+)
+
 app.register_blueprint(cadastro_bp)
+app.register_blueprint(login_bp)
 
 # Função para conectar ao banco de dados
 def conecta_bd():
@@ -14,16 +22,39 @@ def conecta_bd():
         password='Rubinho091123'
     )
 
-# Define o encoding das respostas HTTP
-@app.after_request
-def after_request(response):
-    response.headers['Content-Type'] = 'text/html; charset=utf-8'
-    return response
-
 # Rota inicial
 @app.route('/')
 def index():
-    return send_file('../frontend/templates/Telacadastro.html')  # Certifique-se de que o arquivo está na pasta "templates"
+    return render_template('Telainicial.html')
+
+# Rotas para as outras páginas
+@app.route('/login')
+def login():
+    return render_template('Telalogin.html')
+
+@app.route('/cadastro')
+def cadastro():
+    return render_template('Telacadastro.html')
+
+@app.route('/sobre-nos')
+def sobre_nos():
+    return render_template('Sobre_nos.html')
+
+@app.route('/sobre-site')
+def sobre_site():
+    return render_template('Sobre_site.html')
+
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
+
+@app.route('/usuario')
+def usuario():
+    return render_template('Telausuario.html')
+
+@app.route('/novaSenha')
+def nova_senha():
+    return render_template('Nova_Senha.html')
 
 # Inicialização
 if __name__ == '__main__':

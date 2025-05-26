@@ -1,44 +1,46 @@
-from flask import Flask, request, redirect, send_file
+from flask import Flask, request, redirect, send_file, Blueprint, render_template, url_for
 import psycopg2
+from database.conexao import conecta_bd
 
 app = Flask(__name__)
 
-def conecta_bd():
-    return psycopg2.connect(
-        host='localhost',
-        database='projeto',
-        user='postgre',
-        password='92525601'
-    )
+login_bp = Blueprint('login', __name__)
+
+@login_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        senha = request.form['senha']
+        
+        try:
+            conn = conecta_bd()
+            cur = conn.cursor()
+            
+            # Verifica se o usuário existe
+            cur.execute('SELECT * FROM usuarios WHERE email = %s AND senha = %s', (email, senha))
+            usuario = cur.fetchone()
+            
+            if usuario:
+                # Login bem sucedido
+                cur.close()
+                conn.close()
+                return redirect(url_for('usuario'))
+            else:
+                # Login falhou
+                cur.close()
+                conn.close()
+                return render_template('Telalogin.html', error='Email ou senha incorretos')
+                
+        except Exception as e:
+            print(f"Erro ao fazer login: {e}")
+            return render_template('Telalogin.html', error='Erro ao fazer login')
+            
+    # Se for GET, apenas renderiza a página de login
+    return render_template('Telalogin.html')
 
 @app.route('/')
 def index():
     return send_file('../frontend/templates/Telalogin.html')
-
-@app.route('/login', methods=['POST'])
-def login():
-    usuario = request.form.get('usuario')
-    senha = request.form.get('senha')
-
-    try:
-        conn = conecta_bd()
-        cur = conn.cursor()
-        cur.execute("SELECT * FROM usuarios WHERE avatar = %s AND senha = %s", (usuario, senha))
-        user = cur.fetchone()
-        cur.close()
-        conn.close()
-
-        if user:
-            return send_file('../frontend/templates/Telausuario.html')
-        else:
-            return '''
-                <script>
-                    alert("Usuário ou senha inválidos.");
-                    window.location.href = "/";
-                </script>
-            '''
-    except Exception as e:
-        return f"Erro ao conectar ao banco de dados: {e}", 500
 
 @app.route('/telausuario')
 def tela_usuario():

@@ -2,7 +2,10 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../../../frontend/assets/css/Stl_Login.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/Stl_Login.css') }}"
+    />
     <title>Tela de Login</title>
   </head>
 
@@ -17,11 +20,11 @@
       <ul class="login-utils">
         <li class="margin-bottom-8 margin-top-8">
           <span class="text1">Esqueceu sua</span>
-          <a href="Nova_senha.html" class="text2">senha?</a>
+          <a href="{{ url_for('nova_senha') }}" class="text2">senha?</a>
         </li>
         <li>
           <span class="text1">Não tem conta?</span>
-          <a href="Telacadastro.html" class="text2">Criar</a>
+          <a href="{{ url_for('cadastro') }}" class="text2">Criar</a>
         </li>
       </ul>
     </div>
