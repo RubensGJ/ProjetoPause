@@ -1,7 +1,9 @@
 from flask import Flask, request, redirect, send_file
+from database.routes.cadastro import cadastro_bp
 import psycopg2
 
 app = Flask(__name__)
+app.register_blueprint(cadastro_bp)
 
 # Função para conectar ao banco de dados
 def conecta_bd():
@@ -9,7 +11,7 @@ def conecta_bd():
         host='localhost',
         database='projeto',
         user='postgres',
-        password='123456'
+        password='Rubinho091123'
     )
 
 # Define o encoding das respostas HTTP
@@ -22,55 +24,6 @@ def after_request(response):
 @app.route('/')
 def index():
     return send_file('../frontend/templates/Telacadastro.html')  # Certifique-se de que o arquivo está na pasta "templates"
-
-# Rota de cadastro
-@app.route('/cadastro', methods=['POST'])
-def cadastro():
-    data = request.form
-
-    # Coleta os dados do formulário
-    avatar = data.get('Avatar')
-    nome_completo = data.get('Nome')
-    nascimento = data.get('DataNascimento')
-    genero = data.get('Genero')
-    estado = data.get('Estado')
-    cidade = data.get('Cidade')
-    email = data.get('email')
-    curso = data.get('Curso')
-    senha = data.get('password')
-    confirmPassword = data.get('confirmPassword')
-
-    # Verifica se as senhas coincidem
-    if senha != confirmPassword:
-        return "As senhas não coincidem.", 400
-
-    # Conexão e inserção no banco
-    conn = None
-    cur = None
-    try:
-        conn = conecta_bd()
-        cur = conn.cursor()
-
-        # Executa a inserção no banco
-        cur.execute("""
-            INSERT INTO usuarios (
-                avatar, nome_completo, nascimento, genero, estado, cidade, email, curso, senha
-            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """, (
-            avatar, nome_completo, nascimento, genero,
-            estado, cidade, email, curso, senha
-        ))
-
-        conn.commit()
-
-    except Exception as e:
-        return f"Ocorreu um erro ao cadastrar: {str(e)}", 500
-
-    finally:
-        if cur: cur.close()
-        if conn: conn.close()
-
-    return redirect('/')
 
 # Inicialização
 if __name__ == '__main__':
