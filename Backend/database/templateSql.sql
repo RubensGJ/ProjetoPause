@@ -1,3 +1,17 @@
+CREATE TABLE usuario(
+    Id VARCHAR(255) PRIMARY KEY,
+    Username VARCHAR(255) NOT NULL,
+    Nome VARCHAR(255) NOT NULL,
+    DataNascimento DATE,
+    Genero VARCHAR(50),
+    Estado VARCHAR(255),
+    Cidade VARCHAR(255),
+    Email VARCHAR(100),
+    Curso VARCHAR(255),
+    Senha VARCHAR(255) NOT NULL,
+    DataCadastro DATE NOT NULL
+);
+
 CREATE TABLE CHAT (
     Id VARCHAR(255) PRIMARY KEY,
     CriadoEm DATE NOT NULL
@@ -39,20 +53,4 @@ CREATE TABLE PERFIL (
     Biografia TEXT,
     FotoPerfil VARCHAR(255),
     FOREIGN KEY (UsuarioId) REFERENCES usuario(Id)
-);
-
-------//-------//-----//-------//-------//-------//-------//-------//-------//-------//
-
-CREATE TABLE usuario(
-    Id VARCHAR(255) PRIMARY KEY,
-    Username VARCHAR(255) NOT NULL,
-    Nome VARCHAR(255) NOT NULL,
-    DataNascimento DATE,
-    Genero VARCHAR(50),
-    Estado VARCHAR(255),
-    Cidade VARCHAR(255),
-    Email VARCHAR(100),
-    Curso VARCHAR(255),
-    Senha VARCHAR(255) NOT NULL,
-    DataCadastro DATE NOT NULL
 );
