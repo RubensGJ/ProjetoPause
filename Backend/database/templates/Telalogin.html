@@ -13,10 +13,13 @@
     <div>
       <h1>Login</h1>
       <form method="POST" action="/login">
-        <input type="text" name="usuario" placeholder="Usuário" required />
+        <input type="email" name="email" placeholder="Email" required />
         <input type="password" name="senha" placeholder="Senha" required />
         <button type="submit">Entrar</button>
       </form>
+      {% if error %}
+      <div class="error-message">{{ error }}</div>
+      {% endif %}
       <ul class="login-utils">
         <li class="margin-bottom-8 margin-top-8">
           <span class="text1">Esqueceu sua</span>
@@ -43,31 +46,6 @@
     </div>
 
     <script>
-      function handleLogin() {
-        var usuario = document.getElementById("usuario").value;
-        var senha = document.getElementById("senha").value;
-
-        if (usuario === "" && senha === "") {
-          showPopup("Por favor, preencha o usuário e a senha.");
-        } else if (usuario === "") {
-          showPopup("Por favor, preencha o campo de usuário.");
-        } else if (senha === "") {
-          showPopup("Por favor, preencha o campo de senha.");
-        } else if (usuario !== "allan") {
-          showPopup("Usuário incorreto. Tente novamente.");
-        } else if (senha !== "1234") {
-          showPopup("Senha incorreta. Tente novamente.");
-        } else {
-          window.location.href = "../Tela%20usuario/telausuario.html";
-        }
-      }
-
-      function showPopup(message) {
-        document.getElementById("popupMessage").textContent = message;
-        document.getElementById("popup").style.display = "block";
-        document.getElementById("overlay").style.display = "block";
-      }
-
       function closePopup() {
         document.getElementById("popup").style.display = "none";
         document.getElementById("overlay").style.display = "none";
