@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect, send_file, render_template, url_for
 from database.routes.cadastro import cadastro_bp
 from database.routes.login import login_bp
-import psycopg2
+from database.conexao import conecta_bd  # Adicione este import se precisar usar conecta_bd aqui
 import os
 
 app = Flask(__name__,
@@ -12,15 +12,6 @@ app = Flask(__name__,
 
 app.register_blueprint(cadastro_bp)
 app.register_blueprint(login_bp)
-
-# Função para conectar ao banco de dados
-def conecta_bd():
-    return psycopg2.connect(
-        host='localhost',
-        database='projeto',
-        user='postgres',
-        password='Rubinho091123'
-    )
 
 # Rota inicial
 @app.route('/')

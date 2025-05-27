@@ -2,16 +2,9 @@ from flask import Blueprint, request, redirect
 import psycopg2
 import uuid
 from datetime import date
+from database.conexao import conecta_bd  # Importa a função de conexao.py
 
 cadastro_bp = Blueprint('cadastro', __name__)
-
-def conecta_bd():
-    return psycopg2.connect(
-        host='localhost',
-        database='projeto',
-        user='postgres',
-        password='123456'
-    )
 
 @cadastro_bp.route('/cadastro', methods=['POST'])
 def cadastro():
