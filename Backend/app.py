@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, send_file, render_template, url_for
+from flask import Flask, request, redirect, send_file, render_template, url_for, session
 from database.routes.cadastro import cadastro_bp
 from database.routes.login import login_bp
 from database.conexao import conecta_bd  
@@ -9,6 +9,7 @@ app = Flask(__name__,
     static_folder=os.path.abspath(os.path.join(os.path.dirname(__file__), '../frontend/assets')),
     static_url_path='/static'
 )
+app.secret_key = 'sua_chave_secreta'  
 
 app.register_blueprint(cadastro_bp)
 app.register_blueprint(login_bp)
@@ -41,7 +42,9 @@ def chat():
 
 @app.route('/usuario')
 def usuario():
-    return render_template('Telausuario.html')
+    username = session.get('username', 'Usuário')
+    email = session.get('email', 'Email não encontrado')
+    return render_template('Telausuario.html', username=username, email=email)
 
 @app.route('/novaSenha')
 def nova_senha():

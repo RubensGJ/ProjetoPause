@@ -1,8 +1,9 @@
-from flask import Flask, request, redirect, send_file, Blueprint, render_template, url_for
+from flask import Flask, request, redirect, send_file, Blueprint, render_template, url_for, session
 import psycopg2
 from database.conexao import conecta_bd
 
 app = Flask(__name__)
+app.secret_key = 'sua_chave_secreta'
 
 login_bp = Blueprint('login', __name__)
 
@@ -14,21 +15,20 @@ def login():
         try:
             conn = conecta_bd()
             cur = conn.cursor()
-            # Verifica se o usuário existe
-            cur.execute('SELECT * FROM usuario WHERE email = %s AND senha = %s', (email, senha))
+            cur.execute('SELECT id, username, email FROM usuario WHERE email = %s AND senha = %s', (email, senha))
             usuario = cur.fetchone()
             cur.close()
             conn.close()
             if usuario:
-                # Login bem sucedido
+                session['usuario_id'] = usuario[0]
+                session['username'] = usuario[1]
+                session['email'] = usuario[2]
                 return redirect(url_for('usuario'))
             else:
-                # Login falhou
                 return render_template('Telalogin.html', error='Email ou senha incorretos')
         except Exception as e:
             print(f"Erro ao fazer login: {e}")
             return render_template('Telalogin.html', error='Erro ao fazer login')
-    # Se for GET, apenas renderiza a página de login
     return render_template('Telalogin.html')
 
 @app.route('/')

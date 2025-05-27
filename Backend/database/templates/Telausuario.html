@@ -28,8 +28,8 @@
           src="{{ url_for('static', filename='img/usuario.png') }}"
           alt="Foto do Usuário"
         />
-        <h2 id="profileName">Allan</h2>
-        <p id="profileEmail">Email: Allan@gmail.com</p>
+        <h2 id="profileName">{{ username }}</h2>
+        <p id="profileEmail">Email: {{ email }}</p>
         <div class="buttons">
           <button id="editProfileButton">Editar Perfil</button>
           <a href="{{ url_for('login') }}"
@@ -39,9 +39,9 @@
 
         <div class="edit-form" id="editForm">
           <label for="nameInput">Usuário:</label>
-          <input type="text" id="nameInput" value="Allan" />
+          <input type="text" id="nameInput" value="{{ username }}" />
           <label for="emailInput">Email:</label>
-          <input type="email" id="emailInput" value="Allan@gmail.com" />
+          <input type="email" id="emailInput" value="{{ email }}" />
           <button onclick="saveProfile()">Salvar</button>
         </div>
       </div>

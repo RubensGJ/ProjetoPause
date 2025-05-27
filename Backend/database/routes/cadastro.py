@@ -10,7 +10,7 @@ cadastro_bp = Blueprint('cadastro', __name__)
 def cadastro():
     data = request.form
 
-    # Coleta os dados do formulário (nomes devem bater com o HTML!)
+    # Coleta os dados do formulário (nomes devem bater com o HTML)
     avatar = data.get('avatar')
     nome_completo = data.get('nome_completo')
     nascimento = data.get('nascimento')
@@ -22,11 +22,9 @@ def cadastro():
     senha = data.get('password')
     confirmPassword = data.get('confirmPassword')
 
-    # Verifica se as senhas coincidem
     if senha != confirmPassword:
         return "As senhas não coincidem.", 400
 
-    # Gera um UUID e data de cadastro
     usuario_id = str(uuid.uuid4())
     data_cadastro = date.today()
 
