@@ -2,7 +2,7 @@ from flask import Blueprint, request, redirect
 import psycopg2
 import uuid
 from datetime import date
-from database.conexao import conecta_bd  # Importa a função de conexao.py
+from database.conexao import conecta_bd  
 
 cadastro_bp = Blueprint('cadastro', __name__)
 

@@ -13,7 +13,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="../../../frontend/assets/css/Stl_Chat.css"
+      href="{{ url_for('static', filename='css/Stl_Chat.css') }}"
     />
   </head>
   <body>
@@ -42,7 +42,7 @@
                   <div class="d-flex bd-highlight">
                     <div class="img_cont">
                       <img
-                        src="../../../frontend/assets/img/voluntario1.jpeg"
+                        src="{{ url_for('static', filename='img/voluntario1.jpeg') }}"
                         class="rounded-circle user_img"
                       />
                       <span class="online_icon"></span>
@@ -57,7 +57,7 @@
                   <div class="d-flex bd-highlight">
                     <div class="img_cont">
                       <img
-                        src="../../../frontend/assets/img/cats.jpeg"
+                        src="{{ url_for('static', filename='img/cats.jpeg') }}"
                         class="rounded-circle user_img"
                       />
                       <span class="online_icon offline"></span>
@@ -72,7 +72,7 @@
                   <div class="d-flex bd-highlight">
                     <div class="img_cont">
                       <img
-                        src="../../../frontend/assets/img/download.jpeg"
+                        src="{{ url_for('static', filename='img/download.jpeg') }}"
                         class="rounded-circle user_img"
                       />
                       <span class="online_icon"></span>
@@ -87,7 +87,7 @@
                   <div class="d-flex bd-highlight">
                     <div class="img_cont">
                       <img
-                        src="../../../frontend/assets/img/voluntário4.jpeg"
+                        src="{{ url_for('static', filename='img/voluntário4.jpeg') }}"
                         class="rounded-circle user_img"
                       />
                       <span class="online_icon offline"></span>
@@ -102,7 +102,7 @@
                   <div class="d-flex bd-highlight">
                     <div class="img_cont">
                       <img
-                        src="../../../frontend/assets/img/voluntário 5.jpeg"
+                        src="{{ url_for('static', filename='img/voluntário 5.jpeg') }}"
                         class="rounded-circle user_img"
                       />
                       <span class="online_icon offline"></span>
@@ -124,7 +124,7 @@
               <div class="d-flex bd-highlight">
                 <div class="img_cont">
                   <img
-                    src="../../../frontend/assets/img/voluntario1.jpeg"
+                    src="{{ url_for('static', filename='img/voluntario1.jpeg') }}"
                     class="rounded-circle user_img"
                   />
                   <span class="online_icon"></span>
@@ -143,13 +143,13 @@
                   <li>
                     <button class="btn btn-outline-primary w-100 text-left">
                       <i class="fas fa-user-circle"></i>
-                      <a href="Telausuario.html">Editar perfil</a>
+                      <a href="{{ url_for('usuario') }}">Editar perfil</a>
                     </button>
                   </li>
                   <li>
                     <button class="btn btn-outline-primary w-100 text-left">
                       <i class="fas fa-home"></i>
-                      <a href="Telainicial.html">Página Inicial</a>
+                      <a href="{{ url_for('index') }}">Página Inicial</a>
                     </button>
                   </li>
                   <li>
@@ -167,7 +167,7 @@
               <div class="d-flex justify-content-start mb-4">
                 <div class="img_cont_msg">
                   <img
-                    src="../../../frontend/assets/img/voluntario1.jpeg"
+                    src="{{ url_for('static', filename='img/voluntario1.jpeg') }}"
                     class="rounded-circle user_img_msg"
                   />
                 </div>
@@ -200,7 +200,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script
       type="text/javascript"
-      src="../../../frontend/assets/js/scripts.js"
+      src="{{ url_for('static', filename='js/scripts.js') }}"
     ></script>
   </body>
 </html>
+<!-- MJ DOCINHO ESTEVE AQUI -->

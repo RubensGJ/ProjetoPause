@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect, send_file, render_template, url_for
 from database.routes.cadastro import cadastro_bp
 from database.routes.login import login_bp
-from database.conexao import conecta_bd  # Adicione este import se precisar usar conecta_bd aqui
+from database.conexao import conecta_bd  
 import os
 
 app = Flask(__name__,
@@ -29,11 +29,11 @@ def cadastro():
 
 @app.route('/sobre-nos')
 def sobre_nos():
-    return render_template('Sobre_nos.html')
+    return render_template('SobreNos.html')
 
 @app.route('/sobre-site')
 def sobre_site():
-    return render_template('Sobre_site.html')
+    return render_template('SobreSite.html')
 
 @app.route('/chat')
 def chat():
@@ -45,7 +45,7 @@ def usuario():
 
 @app.route('/novaSenha')
 def nova_senha():
-    return render_template('Nova_Senha.html')
+    return render_template('NovaSenha.html')
 
 # Inicialização
 if __name__ == '__main__':
