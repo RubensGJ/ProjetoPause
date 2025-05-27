@@ -1,92 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <link rel="stylesheet" href="../assets/css/Stl_Sobre_nos.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="../assets/css/stl_Sobre_nos.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sobre Nós</title>
-
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1 id="page-title">Sobre Nós</h1>
+      <h1 id="page-title">Sobre Nós</h1>
     </header>
-    
+
     <main>
-        <section class="ajuste">
-            <article class="identidade" aria-labelledby="name-leticia">
-                <h2 id="name-leticia" class="nome">Leticia Molina</h2>
-                <p> 
-                    Faculdade Insted<br>
-                    20 anos<br>
-                    Técnica em Análise e Desenvolvimento de Sistemas
-                </p>
-            </article>
+      <section class="ajuste">
+        <article class="identidade" aria-labelledby="name-leticia">
+          <h2 id="name-leticia" class="nome">Leticia Molina</h2>
+          <p>
+            Faculdade Insted<br />
+            20 anos<br />
+            Técnica em Análise e Desenvolvimento de Sistemas
+          </p>
+        </article>
 
-            <article class="identidade" aria-labelledby="name-amanda">
-                <h2 id="name-amanda" class="nome">Amanda Nery</h2>
-                <p> 
-                    Faculdade Insted<br>
-                    20 anos<br>
-                    Técnica em Análise e Desenvolvimento de Sistemas
-                </p>
-            </article>
+        <article class="identidade" aria-labelledby="name-amanda">
+          <h2 id="name-amanda" class="nome">Amanda Nery</h2>
+          <p>
+            Faculdade Insted<br />
+            20 anos<br />
+            Técnica em Análise e Desenvolvimento de Sistemas
+          </p>
+        </article>
 
-            <article class="identidade" aria-labelledby="name-lauan">
-                <h2 id="name-lauan" class="nome">Lauan Rodrigues</h2>
-                <p> 
-                    Faculdade Insted<br>
-                    22 anos<br>
-                    Técnico em Análise e Desenvolvimento de Sistemas
-                </p>
-            </article>
-        </section>
-        
-        <section class="ajuste">
-            <article class="identidade" aria-labelledby="name-moises">
-                <h2 id="name-moises" class="nome">Moisés Dias</h2>
-                <p> 
-                    Faculdade Insted<br>
-                    18 anos<br>
-                    Técnico em Análise e Desenvolvimento de Sistemas
-                </p>
-            </article>
+        <article class="identidade" aria-labelledby="name-lauan">
+          <h2 id="name-lauan" class="nome">Lauan Rodrigues</h2>
+          <p>
+            Faculdade Insted<br />
+            22 anos<br />
+            Técnico em Análise e Desenvolvimento de Sistemas
+          </p>
+        </article>
+      </section>
 
-            <article class="identidade" aria-labelledby="name-allan">
-                <h2 id="name-allan" class="nome">Allan Vinícius</h2>
-                <p> 
-                    Faculdade Insted<br>
-                    18 anos<br>
-                    Técnico em Análise e Desenvolvimento de Sistemas
-                </p>
-            </article>
-        </section>
+      <section class="ajuste">
+        <article class="identidade" aria-labelledby="name-moises">
+          <h2 id="name-moises" class="nome">Moisés Dias</h2>
+          <p>
+            Faculdade Insted<br />
+            18 anos<br />
+            Técnico em Análise e Desenvolvimento de Sistemas
+          </p>
+        </article>
+
+        <article class="identidade" aria-labelledby="name-allan">
+          <h2 id="name-allan" class="nome">Allan Vinícius</h2>
+          <p>
+            Faculdade Insted<br />
+            18 anos<br />
+            Técnico em Análise e Desenvolvimento de Sistemas
+          </p>
+        </article>
+      </section>
     </main>
 
     <!-- Botões para aumentar e diminuir o tamanho da fonte -->
     <div class="font-size-buttons">
-        <button onclick="changeFontSize('increase')">Aumentar Fonte</button>
-        <button onclick="changeFontSize('decrease')">Diminuir Fonte</button>
+      <button onclick="changeFontSize('increase')">Aumentar Fonte</button>
+      <button onclick="changeFontSize('decrease')">Diminuir Fonte</button>
     </div>
 
     <script>
-        // Função para aumentar e diminuir o tamanho da fonte de todos os elementos de texto
-        function changeFontSize(action) {
-            // Seleciona todos os elementos de texto
-            const elements = document.querySelectorAll('body, .ajuste, .identidade, h1, h2, p');
-            let currentSize = parseInt(window.getComputedStyle(document.body).fontSize);
-            
-            elements.forEach(element => {
-                if (action === 'increase') {
-                    // Aumenta o tamanho da fonte
-                    element.style.fontSize = (currentSize * 1.1) + 'px';
-                } else if (action === 'decrease') {
-                    // Diminui o tamanho da fonte
-                    element.style.fontSize = (currentSize / 1.1) + 'px';
-                }
-            });
-        }
+      // Função para aumentar e diminuir o tamanho da fonte de todos os elementos de texto
+      function changeFontSize(action) {
+        // Seleciona todos os elementos de texto
+        const elements = document.querySelectorAll(
+          "body, .ajuste, .identidade, h1, h2, p"
+        );
+        let currentSize = parseInt(
+          window.getComputedStyle(document.body).fontSize
+        );
+
+        elements.forEach((element) => {
+          if (action === "increase") {
+            // Aumenta o tamanho da fonte
+            element.style.fontSize = currentSize * 1.1 + "px";
+          } else if (action === "decrease") {
+            // Diminui o tamanho da fonte
+            element.style.fontSize = currentSize / 1.1 + "px";
+          }
+        });
+      }
     </script>
-</body>
+  </body>
 </html>
 <!-- MJ DOCINHO ESTEVE AQUI -->

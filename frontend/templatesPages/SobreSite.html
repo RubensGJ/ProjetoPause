@@ -1,58 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <link rel="stylesheet" href="../assets/css/Stl_Sobre_site.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="../assets/css/stl_Sobre_site.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sobre o Projeto</title>
-
-
-</head>
-<body>
+  </head>
+  <body>
     <div id="sobre">
-        <h1 class="titulos">Conheça o projeto!</h1>
-        <p>
-            <b>O nosso projeto visa ajudar alunos de universidades 
-            a enfrentarem seus problemas psicológicos através de conversas com estudantes de psicologia voluntários.</b>
-        </p>
-        <h2 class="titulos">
-            Nosso objetivo:
-        </h2>
-        <p>
-            <b>Temos como objetivo diminuir a ansiedade durante o período acadêmico, melhorando o desempenho dessas pessoas
-            para que tenham uma jornada mais tranquila e próspera diminuindo a frequência de trancamento dos cursos e até problemas
-            mais sérios como a automutilação e o suicídio.<br>
-            Ao mesmo tempo que queremos que estudantes de psicologia tenham experiência e contato com a área para
-            que eles possam se formar como um profissional melhor.</b>
-        </p>
+      <h1 class="titulos">Conheça o projeto!</h1>
+      <p>
+        <b
+          >O nosso projeto visa ajudar alunos de universidades a enfrentarem
+          seus problemas psicológicos através de conversas com estudantes de
+          psicologia voluntários.</b
+        >
+      </p>
+      <h2 class="titulos">Nosso objetivo:</h2>
+      <p>
+        <b
+          >Temos como objetivo diminuir a ansiedade durante o período acadêmico,
+          melhorando o desempenho dessas pessoas para que tenham uma jornada
+          mais tranquila e próspera diminuindo a frequência de trancamento dos
+          cursos e até problemas mais sérios como a automutilação e o
+          suicídio.<br />
+          Ao mesmo tempo que queremos que estudantes de psicologia tenham
+          experiência e contato com a área para que eles possam se formar como
+          um profissional melhor.</b
+        >
+      </p>
     </div>
 
     <!-- Botões para aumentar e diminuir o tamanho da fonte -->
     <div class="font-size-buttons">
-        <button onclick="changeFontSize('increase')">Aumentar Fonte</button>
-        <button onclick="changeFontSize('decrease')">Diminuir Fonte</button>
+      <button onclick="changeFontSize('increase')">Aumentar Fonte</button>
+      <button onclick="changeFontSize('decrease')">Diminuir Fonte</button>
     </div>
 
     <script>
-        // Função para aumentar e diminuir o tamanho da fonte de todos os elementos de texto
-        function changeFontSize(action) {
-            // Seleciona todos os elementos de texto (body, títulos e parágrafos)
-            const elements = document.querySelectorAll('body, .titulos, #sobre p');
-            let currentSize = parseInt(window.getComputedStyle(document.body).fontSize);
-            
-            elements.forEach(element => {
-                let currentFontSize = parseInt(window.getComputedStyle(element).fontSize);
-                
-                if (action === 'increase') {
-                    // Aumenta o tamanho da fonte
-                    element.style.fontSize = (currentFontSize * 1.1) + 'px';
-                } else if (action === 'decrease') {
-                    // Diminui o tamanho da fonte
-                    element.style.fontSize = (currentFontSize / 1.1) + 'px';
-                }
-            });
-        }
+      // Função para aumentar e diminuir o tamanho da fonte de todos os elementos de texto
+      function changeFontSize(action) {
+        // Seleciona todos os elementos de texto (body, títulos e parágrafos)
+        const elements = document.querySelectorAll("body, .titulos, #sobre p");
+        let currentSize = parseInt(
+          window.getComputedStyle(document.body).fontSize
+        );
+
+        elements.forEach((element) => {
+          let currentFontSize = parseInt(
+            window.getComputedStyle(element).fontSize
+          );
+
+          if (action === "increase") {
+            // Aumenta o tamanho da fonte
+            element.style.fontSize = currentFontSize * 1.1 + "px";
+          } else if (action === "decrease") {
+            // Diminui o tamanho da fonte
+            element.style.fontSize = currentFontSize / 1.1 + "px";
+          }
+        });
+      }
     </script>
-</body>
+  </body>
 </html>
 <!-- MJ DOCINHO ESTEVE AQUI -->
