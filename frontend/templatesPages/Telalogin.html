@@ -1,86 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../assets/css/Stl_Login.css">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../assets/css/Stl_Login.css" />
     <title>Tela de Login</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div>
-        <h1>Login</h1>
-        <form method="POST" action="/login">
-            <input type="text" name="usuario" placeholder="Usuário" required>
-            <input type="password" name="senha" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
-        </form>
-        <ul class="login-utils">
-            <li class="margin-bottom-8 margin-top-8">
-                <span class="text1">Esqueceu sua</span>
-                <a href="../templates/Nova_senha.html" class="text2">senha?</a> 
-            </li>
-            <li>
-                <span class="text1">Não tem conta?</span>
-                <a href="../templates/Telacadastro.html" class="text2">Criar</a>
-            </li>
-        </ul>
+      <h1>Login</h1>
+      <form method="POST" action="/login">
+        <input type="text" name="usuario" placeholder="Usuário" required />
+        <input type="password" name="senha" placeholder="Senha" required />
+        <button type="submit">Entrar</button>
+      </form>
+      <ul class="login-utils">
+        <li class="margin-bottom-8 margin-top-8">
+          <span class="text1">Esqueceu sua</span>
+          <a href="NovaSenha.html" class="text2">senha?</a>
+        </li>
+        <li>
+          <span class="text1">Não tem conta?</span>
+          <a href="Telacadastro.html" class="text2">Criar</a>
+        </li>
+      </ul>
     </div>
 
     <div class="popup" id="popup">
-        <h2>Erro de Login</h2>
-        <p id="popupMessage">Mensagem de erro</p>
-        <button onclick="closePopup()">Fechar</button>
+      <h2>Erro de Login</h2>
+      <p id="popupMessage">Mensagem de erro</p>
+      <button onclick="closePopup()">Fechar</button>
     </div>
     <div class="overlay" id="overlay"></div>
 
     <!-- Botões fixos de aumento/diminuição da fonte -->
     <div class="controls">
-        <button onclick="adjustFontSize('increase')">Aumentar Fonte</button>
-        <button onclick="adjustFontSize('decrease')">Diminuir Fonte</button>
+      <button onclick="adjustFontSize('increase')">Aumentar Fonte</button>
+      <button onclick="adjustFontSize('decrease')">Diminuir Fonte</button>
     </div>
 
     <script>
-        function handleLogin() {
-            var usuario = document.getElementById('usuario').value;
-            var senha = document.getElementById('senha').value;
+      function handleLogin() {
+        var usuario = document.getElementById("usuario").value;
+        var senha = document.getElementById("senha").value;
 
-            if (usuario === "" && senha === "") {
-                showPopup("Por favor, preencha o usuário e a senha.");
-            } else if (usuario === "") {
-                showPopup("Por favor, preencha o campo de usuário.");
-            } else if (senha === "") {
-                showPopup("Por favor, preencha o campo de senha.");
-            } else if (usuario !== "allan") {
-                showPopup("Usuário incorreto. Tente novamente.");
-            } else if (senha !== "1234") {
-                showPopup("Senha incorreta. Tente novamente.");
-            } else {
-                window.location.href = "../Tela%20usuario/telausuario.html";
-            }
+        if (usuario === "" && senha === "") {
+          showPopup("Por favor, preencha o usuário e a senha.");
+        } else if (usuario === "") {
+          showPopup("Por favor, preencha o campo de usuário.");
+        } else if (senha === "") {
+          showPopup("Por favor, preencha o campo de senha.");
+        } else if (usuario !== "allan") {
+          showPopup("Usuário incorreto. Tente novamente.");
+        } else if (senha !== "1234") {
+          showPopup("Senha incorreta. Tente novamente.");
+        } else {
+          window.location.href = "../Tela%20usuario/telausuario.html";
         }
+      }
 
-        function showPopup(message) {
-            document.getElementById('popupMessage').textContent = message;
-            document.getElementById('popup').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
+      function showPopup(message) {
+        document.getElementById("popupMessage").textContent = message;
+        document.getElementById("popup").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      }
 
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+      }
 
-        // Função para ajustar o tamanho da fonte
-        function adjustFontSize(action) {
-            const body = document.body;
-            const currentFontSize = parseFloat(window.getComputedStyle(body).fontSize);
-            if (action === 'increase') {
-                body.style.fontSize = (currentFontSize * 1.1) + 'px'; // Aumenta 10%
-            } else if (action === 'decrease') {
-                body.style.fontSize = (currentFontSize / 1.1) + 'px'; // Diminui 10%
-            }
+      // Função para ajustar o tamanho da fonte
+      function adjustFontSize(action) {
+        const body = document.body;
+        const currentFontSize = parseFloat(
+          window.getComputedStyle(body).fontSize
+        );
+        if (action === "increase") {
+          body.style.fontSize = currentFontSize * 1.1 + "px"; // Aumenta 10%
+        } else if (action === "decrease") {
+          body.style.fontSize = currentFontSize / 1.1 + "px"; // Diminui 10%
         }
+      }
     </script>
-</body>
+  </body>
 </html>
+<!-- MJ DOCINHO ESTEVE AQUI -->

@@ -1,108 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <link rel="stylesheet" href="../assets/css/Stl_Usuario.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pause: pausa para a saúde mental</title>   
-
-</head>
-<body>
-
+  <head>
+    <link rel="stylesheet" href="../assets/css/Stl_Usuario.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pause: pausa para a saúde mental</title>
+  </head>
+  <body>
     <header>
-        Pause: Pausa pra saúde mental
-        <button class="dark-mode-toggle" id="darkModeToggle">Modo Escuro</button>
+      Pause: Pausa pra saúde mental
+      <button class="dark-mode-toggle" id="darkModeToggle">Modo Escuro</button>
     </header>
 
     <div class="container">
-        <div class="sidebar">
-            <a href="Telainicial.html">Inicio</a>
-            <a href="chat.html">Chat</a>
-            <a href="#">Configurações</a>
-            <a href="#">Ajuda</a>
+      <div class="sidebar">
+        <a href="Telainicial.html">Inicio</a>
+        <a href="chat.html">Chat</a>
+        <a href="#">Configurações</a>
+        <a href="#">Ajuda</a>
+      </div>
+
+      <div class="profile-container">
+        <img src="../assets/img/usuario.png" alt="Foto do Usuário" />
+        <h2 id="profileName">Allan</h2>
+        <p id="profileEmail">Email: Allan@gmail.com</p>
+        <div class="buttons">
+          <button id="editProfileButton">Editar Perfil</button>
+          <a href="Telalogin.html"><button class="logout">Sair</button></a>
         </div>
 
-        <div class="profile-container">
-            <img src="../assets/img/usuario.png" alt="Foto do Usuário">
-            <h2 id="profileName">Allan</h2>
-            <p id="profileEmail">Email: Allan@gmail.com</p>
-            <div class="buttons">
-                <button id="editProfileButton">Editar Perfil</button>
-                <a href="../frontend/templates/Telalogin.html"><button class="logout">Sair</button></a>
-            </div>
-
-            <div class="edit-form" id="editForm">
-                <label for="nameInput">Usuário:</label>
-                <input type="text" id="nameInput" value="Allan">
-                <label for="emailInput">Email:</label>
-                <input type="email" id="emailInput" value="Allan@gmail.com">
-                <button onclick="saveProfile()">Salvar</button>
-            </div>
+        <div class="edit-form" id="editForm">
+          <label for="nameInput">Usuário:</label>
+          <input type="text" id="nameInput" value="Allan" />
+          <label for="emailInput">Email:</label>
+          <input type="email" id="emailInput" value="Allan@gmail.com" />
+          <button onclick="saveProfile()">Salvar</button>
         </div>
+      </div>
     </div>
 
-    <footer>
-        Pause: Pausa para a saúde mental
-    </footer>
+    <footer>Pause: Pausa para a saúde mental</footer>
 
     <div class="popup" id="popup">
-        <h2 id="popupTitle"></h2>
-        <p id="popupMessage"></p>
-        <button onclick="closePopup()">Fechar</button>
+      <h2 id="popupTitle"></h2>
+      <p id="popupMessage"></p>
+      <button onclick="closePopup()">Fechar</button>
     </div>
 
     <script>
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const body = document.body;
 
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode');
+      if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+      }
+
+      darkModeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        if (body.classList.contains("dark-mode")) {
+          localStorage.setItem("darkMode", "enabled");
+          darkModeToggle.textContent = "Modo Claro";
+        } else {
+          localStorage.setItem("darkMode", "disabled");
+          darkModeToggle.textContent = "Modo Escuro";
         }
+      });
 
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-                darkModeToggle.textContent = 'Modo Claro';
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
-                darkModeToggle.textContent = 'Modo Escuro';
-            }
-        });
+      function showPopup(title, message) {
+        document.getElementById("popupTitle").textContent = title;
+        document.getElementById("popupMessage").textContent = message;
+        document.getElementById("popup").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      }
 
-        function showPopup(title, message) {
-            document.getElementById('popupTitle').textContent = title;
-            document.getElementById('popupMessage').textContent = message;
-            document.getElementById('popup').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+      }
 
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
+      const editProfileButton = document.getElementById("editProfileButton");
+      const editForm = document.getElementById("editForm");
+      const profileName = document.getElementById("profileName");
+      const profileEmail = document.getElementById("profileEmail");
 
-        const editProfileButton = document.getElementById('editProfileButton');
-        const editForm = document.getElementById('editForm');
-        const profileName = document.getElementById('profileName');
-        const profileEmail = document.getElementById('profileEmail');
+      editProfileButton.addEventListener("click", () => {
+        editForm.style.display = "block";
+        editProfileButton.style.opacity = "0.5"; // Deixa o botão semi-transparente
+      });
 
-        editProfileButton.addEventListener('click', () => {
-            editForm.style.display = 'block';
-            editProfileButton.style.opacity = '0.5'; // Deixa o botão semi-transparente
-        });
+      function saveProfile() {
+        const nameInput = document.getElementById("nameInput").value;
+        const emailInput = document.getElementById("emailInput").value;
 
-        function saveProfile() {
-            const nameInput = document.getElementById('nameInput').value;
-            const emailInput = document.getElementById('emailInput').value;
+        profileName.textContent = nameInput;
+        profileEmail.textContent = "Email: " + emailInput;
 
-            profileName.textContent = nameInput;
-            profileEmail.textContent = 'Email: ' + emailInput;
-
-            editForm.style.display = 'none';
-            editProfileButton.style.opacity = '1'; // Volta o botão a ficar opaco
-        }
+        editForm.style.display = "none";
+        editProfileButton.style.opacity = "1"; // Volta o botão a ficar opaco
+      }
     </script>
-
-</body>
+  </body>
 </html>
+
+<!-- SG ESTEVE AQUI -->
